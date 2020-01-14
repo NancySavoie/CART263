@@ -1,3 +1,6 @@
+// Exercise 1: Pixel Painter Pro
+// Nancy Savoie
+
 // With help from these websites:
 // https://dev.to/akhil_001/generating-random-color-with-single-line-of-js-code-fhj
 
