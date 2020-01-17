@@ -1,4 +1,4 @@
-// Exercise 1: Pixel Painter Pro
+// Assignment 1: Pixel Painter Pro
 // Nancy Savoie
 
 // With help from these websites:
