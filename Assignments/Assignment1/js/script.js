@@ -16,9 +16,9 @@ function setup() {
   for (let i = 0; i < 1000; i++) {
     let pixel = document.createElement("div");
     pixel.setAttribute("class", "pixel");
-    pixel.addEventListener("mouseover", paint);
+    pixel.addEventListener("mouseover", paint); // For mouseover
     document.body.appendChild(pixel);
-    document.addEventListener('keydown', rotate); //For keydown
+    document.addEventListener("keydown", rotate); // For keydown
   }
 }
 
@@ -42,7 +42,7 @@ function randomColor() {
 
 // For the keydown event listener
 function rotate(buttonPressed) {
-  let pixels = document.getElementsByClassName('pixel');
+  let pixels = document.getElementsByClassName("pixel");
 
   // When the left arrow key is pressed, change the rotation to +1 clockwise
   if (buttonPressed.keyCode === 37) {
@@ -50,12 +50,12 @@ function rotate(buttonPressed) {
     for (let i = 0; i < pixels.length; i++) {
       pixels[i].style.transform = `rotate(${rotation}deg)`;
     }
-}
-    // When the right arrow key is pressed, change the rotation counter-clockwise
-    if (buttonPressed.keyCode === 39) {
-      rotation += -1;
-      for (let i = 0; i < pixels.length; i++) {
-        pixels[i].style.transform = `rotate(${rotation}deg)`;
-      }
-      }
+  }
+  // When the right arrow key is pressed, change the rotation counter-clockwise
+  if (buttonPressed.keyCode === 39) {
+    rotation += -1;
+    for (let i = 0; i < pixels.length; i++) {
+      pixels[i].style.transform = `rotate(${rotation}deg)`;
     }
+  }
+}
