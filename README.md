@@ -1,2 +1,2 @@
 # CART263
-CART 263 Exercises and Projects 
+CART 263 Assignments and Projects 
