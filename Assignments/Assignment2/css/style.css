@@ -25,3 +25,8 @@ body {
   text-decoration: underline; /* underlined! */
   color: red; /* Emergency! */
 }
+
+.secret{
+  background-color: yellow;
+  color: black;
+}
