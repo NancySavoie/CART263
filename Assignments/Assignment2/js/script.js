@@ -16,7 +16,7 @@ const UPDATE_FREQUENCY = 500;
 let $spans;
 // Variables to track how many secrets were found
 let secretsFound = 0;
-let secretsTotal = 5;
+let secretsTotal = 7;
 
 // When the document is loaded we call the setup function
 $(document).ready(setup);
@@ -33,7 +33,7 @@ function setup() {
   setInterval(update, UPDATE_FREQUENCY);
   // Set the score display text
   $('#scoreDisplay').text("You found " + secretsFound + " out of " + secretsTotal + " secrets");
-// Calculate the total number of secrets on the page
+  // Calculate the total number of secrets on the page
   secretsTotal = $('.secret').length;
   // Event for "mouseover" to all the secrets, tirggers The "secretsReveal" function
   $('.secret').on('mouseover', secretsReveal);
@@ -53,7 +53,7 @@ function secretsReveal() {
   $(this).addClass('found'); // The CSS class "found"
   $('.found').off('mouseover'); // Removes the mouse over event from the found element after the secret is found
   secretsFound += 1; // Counter variable increased by one
-  $('#scoreDisplay').text();
+  $('#scoreDisplay').text("You found " + secretsFound + " out of " + secretsTotal + " secrets");
 }
 // update()
 //
