@@ -27,6 +27,6 @@ body {
 }
 
 .secret{
-  background-color: yellow;
   color: black;
+  background-color: yellow; /* like a highlighter
 }
