@@ -22,11 +22,9 @@ body {
 /* Revealed elements need to be highlighted because it's a disaster! */
 .revealed {
   background-color: transparent; /* No background */
-  text-decoration: underline; /* underlined! */
   color: red; /* Emergency! */
 }
 
-.secret{
-  color: black;
+.found{
   background-color: yellow; /* like a highlighter
 }
