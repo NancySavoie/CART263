@@ -35,7 +35,7 @@ function setup() {
   $('#scoreDisplay').text("You found " + secretsFound + " out of " + secretsTotal + " secrets");
   // Calculate the total number of secrets on the page
   secretsTotal = $('.secret').length;
-  // Event for "mouseover" to all the secrets, tirggers The "secretsReveal" function
+  // Event for "mouseover" to all the secrets, triggers The "secretsReveal" function
   $('.secret').on('mouseover', secretsReveal);
 };
 
@@ -48,13 +48,20 @@ function spanClicked() {
   $(this).addClass('redacted');
 }
 
+// secretsReveal()
+//
 // When the mouse goes over a secret, the found class, the secret, is highighted in yellow, thus revealed
 function secretsReveal() {
-  $(this).addClass('found'); // The CSS class "found"
-  $('.found').off('mouseover'); // Removes the mouse over event from the found element after the secret is found
-  secretsFound += 1; // Counter variable increased by one
+  // The CSS class "found"
+  $(this).addClass('found');
+  // Removes the mouse over event from the found element after the secret is found (no double count)
+  $('.found').off('mouseover');
+  // Counter variable increased by one
+  secretsFound += 1;
+  // Adds found secrets to total score display
   $('#scoreDisplay').text("You found " + secretsFound + " out of " + secretsTotal + " secrets");
 }
+
 // update()
 //
 // Update is called every 500 milliseconds and it updates all the spans on the page
