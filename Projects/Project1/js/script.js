@@ -29,6 +29,9 @@ let questions = [
   "Place the right vase on the according column - You call this working?",
 ];
 
+// Load our disco Beethoven into a variable
+let music = new Audio('assets/sounds/backgroundMusic.mp3');
+
 // Tracking of the mouse movements to initiate new dialog popup.
 const MAX_MOUSE_MOVES = 2000;
 let mouseMoves = 0;
@@ -36,6 +39,11 @@ let mouseMoves = 0;
 $(document).ready(setup);
 
 function setup() {
+
+  if (mouseMoved) {
+    music.play;
+  }
+
   // Calls the mouseMoved function when mouse is moved.
   $(document).on('mousemove', mouseMoved);
   // Add a popup dialog after set amount of time.
@@ -65,6 +73,9 @@ function addDialog() {
   $dialog.append(`<p>${question}</p>`);
   // Finally, add the div to the page
   $('body').append($dialog);
+
+// The music starts with first popup
+  handleMusic();
 
   // Transforms div into dialog with help from jQuery UI's.dialog() (https://api.jqueryui.com/dialog/#option-dialogClass).
   $dialog.dialog({
@@ -100,3 +111,13 @@ function closeDialog() {
 function randomInRange(min, max) {
   return min + (Math.random() * (max - min));
 }
+
+
+// Called when the user stops resizing an element...
+function handleMusic() {
+  // If it's currently paused, we should start it
+//  if (music.play) {
+
+    music.loop
+    //music.play();
+  }

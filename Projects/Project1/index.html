@@ -8,11 +8,14 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 
   <!-- Libraries -->
+
+  <!-- jQuery! -->
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 
+  <!-- jQuery UI! -->
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
   <script
   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
@@ -24,7 +27,24 @@
   <script src="js/script.js"></script>
 </head>
 
+<!-- Here is the audio tag that contains an MP3 we can play on the page
+  using JavaScript - see above in handleMusic(). -->
+    <audio autoplay preload='auto' loop id="backgroundMusic">
+  <source src="assets/sounds/backgroundMusic.mp3" type="audio/mpeg" >
+</audio>
+
 <body>
+  <!-- Images that will be manipulated via jQuery and jQueryUI -->
+  <style>
+  body {
+    background-image: url('assets/images/background.jpg');
+  }
+  </style>
+  <img id="column1" src="assets/images/column1.png" style="width:150px;height:400px;position:absolute; bottom:35px; left:50px;"">
+  <img id="column2" src="assets/images/column2.png" style="width:150px;height:400px;position:absolute; bottom:35px; left:350px;"">
+  <img id="column3" src="assets/images/column3.png" style="width:150px;height:400px;position:absolute; bottom:35px; left:600px;"">
+  <img id="column4" src="assets/images/column4.png" style="width:150px;height:400px;position:absolute; bottom:35px; left:850px;"">
+  <img id="column5" src="assets/images/column5.png" style="width:150px;height:400px;position:absolute; bottom:35px; left:1100px;"">
 </body>
 
 </html>
