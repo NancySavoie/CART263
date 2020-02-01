@@ -66,7 +66,7 @@ function mouseMoved() {
 function addDialog() {
 
   // Creates a div to store variables.
-  let $dialog = $(`<div></div>`).attr(`title`, `Question`);
+  let $dialog = $(`<div></div>`).attr(`title`, `ασήμαντος αγώνας`);
   // Choose a random question text from the array
   let question = questions[Math.floor(randomInRange(0, questions.length))];
   // Add a p tag to the dialog div that contains the question text
@@ -74,7 +74,7 @@ function addDialog() {
   // Finally, add the div to the page
   $('body').append($dialog);
 
-// The music starts with first popup
+  // The music starts with first popup
   handleMusic();
 
   // Transforms div into dialog with help from jQuery UI's.dialog() (https://api.jqueryui.com/dialog/#option-dialogClass).
@@ -113,11 +113,7 @@ function randomInRange(min, max) {
 }
 
 
-// Called when the user stops resizing an element...
+// handleMusic function
 function handleMusic() {
-  // If it's currently paused, we should start it
-//  if (music.play) {
-
-    music.loop
-    //music.play();
-  }
+  music.loop
+}
