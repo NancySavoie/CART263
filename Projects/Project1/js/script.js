@@ -14,7 +14,7 @@ Music: Greek Balcanic Instrumental Music - Bouzouki and Guitar (YouTube).
 *********************************************************************/
 
 // The initial wait time for the fist window popup.
-const INITIAL_DIALOG_DELAY = 2000;
+const INITIAL_DIALOG_DELAY = 200;
 // Constants determining the wait time before a new dialog popup window comes up.
 const MIN_DIALOG_DELAY_TIME = 10000;
 const MAX_DIALOG_DELAY_TIME = 250000;
@@ -23,13 +23,14 @@ const MAX_DIALOG_DELAY_TIME = 250000;
 let questions = [
   "Place the right vase on the according column - Can you really do this?",
   "Place the right vase on the according column - Are you ready to give up yet?",
-  "Place the right vase on the according column - Sisyphus wouldn't quit.",
+  "Place the right vase on the according column - Sisyphus wouldn't quit...because he can't...",
   "Place the right vase on the according column - Are you trying hard enough?",
   "Place the right vase on the according column - Working hard or hardly working?",
   "Place the right vase on the according column - You call this working?",
   "Place the right vase on the according column - It shouldn't be too difficult.",
   "Place the right vase on the according column - Commitment is key...or is it?",
-
+  "Place the right vase on the according column - Perhaps you should quit...",
+  "Place the right vase on the according column - No need for pointless struggle.",
 ];
 
 // Load the background music.
