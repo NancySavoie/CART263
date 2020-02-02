@@ -26,9 +26,9 @@ let questions = [
   "Place the right vase on the according column - Sisyphus wouldn't quit.",
   "Place the right vase on the according column - Are you trying hard enough?",
   "Place the right vase on the according column - Working hard or hardly working?",
-  "Place the right vase on the according column - You call this working?"
-  "Place the right vase on the according column - It shouldn't be too difficult."
-  "Place the right vase on the according column - Commitment is key...or is it?"
+  "Place the right vase on the according column - You call this working?",
+  "Place the right vase on the according column - It shouldn't be too difficult.",
+  "Place the right vase on the according column - Commitment is key...or is it?",
 ];
 
 // Load the background music.
@@ -107,7 +107,8 @@ function setup() {
   $vase5 = $("#vase5");
   $vase5.draggable({
     revert: true
-  });
+  //revertDuration: 500,
+});
 
   // Calls the mouseMoved function when mouse is moved.
   $(document).on("mousemove", mouseMoved);
@@ -155,10 +156,9 @@ function addDialog() {
     containment: "body"
   });
 
-  // Use of .offset() on the .parent() of the dialog to give a random position + .height() and .width() to get the dimensions of elements on page.
+  // Use of .offset() on the .parent() of the dialog box at the center of page.
   $dialog.parent().offset({
-    top: Math.random() * ($(window).height() - $dialog.parent().height()),
-    left: Math.random() * ($(window).width() - $dialog.parent().width())
+    center: ($(window).height(), $(window).width() - $dialog.parent().height())
   });
 }
 
@@ -181,4 +181,6 @@ function handleMusic() {
 }
 
 // OnDrop event
-function onDrop(event, ui) {}
+function onDrop(event, ui) {
+  $( ".vase5" ).draggable( "OnDrop", "revertDuration", 200 );
+}
