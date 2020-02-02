@@ -16,8 +16,8 @@ Music: Greek Balcanic Instrumental Music - Bouzouki and Guitar (YouTube).
 // The initial wait time for the fist window popup.
 const INITIAL_DIALOG_DELAY = 2000;
 // Constants determining the wait time before a new dialog popup window comes up.
-const MIN_DIALOG_DELAY_TIME = 50000;
-const MAX_DIALOG_DELAY_TIME = 500000;
+const MIN_DIALOG_DELAY_TIME = 10000;
+const MAX_DIALOG_DELAY_TIME = 250000;
 
 // An array of questions to frustratre the player.
 let questions = [
@@ -32,6 +32,18 @@ let questions = [
 // Load our disco Beethoven into a variable
 let music = new Audio('assets/sounds/backgroundMusic.mp3');
 
+// Variables to hold the columns and the vases
+let $column1;
+let $column2;
+let $column3;
+let $column4;
+let $column5;
+let $vase1;
+let $vase2;
+let $vase3;
+let $vase4;
+let $vase5;
+
 // Tracking of the mouse movements to initiate new dialog popup.
 const MAX_MOUSE_MOVES = 2000;
 let mouseMoves = 0;
@@ -43,6 +55,58 @@ function setup() {
   if (mouseMoved) {
     music.play;
   }
+
+  $column1 = $('#column1');
+  // Make it droppable
+  $column1.droppable({
+    // The drop option specifies a function to call when a drop is completed.
+    drop: onDrop
+  });
+  // Repeat the same steps for the other columns.
+  $column2 = $('#column2');
+  $column2.droppable({
+    drop: onDrop
+  });
+
+  $column3 = $('#column3');
+  $column3.droppable({
+    drop: onDrop
+  });
+
+  $column4 = $('#column4');
+  $column4.droppable({
+    drop: onDrop
+  });
+
+  $column5 = $('#column5');
+  $column5.droppable({});
+
+  // Get the vase element.
+  $vase1 = $('#vase1');
+  // Make it draggable an revert to original position when released.
+  $vase1.draggable({
+    revert: true
+  });
+  // Repeat for the other vases.
+  $vase2 = $('#vase2');
+  $vase2.draggable({
+    revert: true
+  });
+
+  $vase3 = $('#vase3');
+  $vase3.draggable({
+    revert: true
+  });
+
+  $vase4 = $('#vase4');
+  $vase4.draggable({
+    revert: true
+  });
+
+  $vase5 = $('#vase5');
+  $vase5.draggable({
+    revert: true
+  });
 
   // Calls the mouseMoved function when mouse is moved.
   $(document).on('mousemove', mouseMoved);
@@ -112,8 +176,13 @@ function randomInRange(min, max) {
   return min + (Math.random() * (max - min));
 }
 
-
 // handleMusic function
 function handleMusic() {
   music.loop
 }
+
+function onDrop(event, ui) {}
+// We should "close the mouth" by changing its image
+// .attr() lets us change specific attributes on HTML element by specifying the attribute
+// and then what we want to set it to - in this case the 'src' attribute to the closed image
+//  $(this).attr('src', 'assets/images/mouth-closed.png');
