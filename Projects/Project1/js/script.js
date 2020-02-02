@@ -34,6 +34,7 @@ let questions = [
 
 // Load the background music.
 let music = new Audio("assets/sounds/backgroundMusic.mp3");
+music.volume = 1;
 
 // Variables to hold the columns and the vases
 let $column1;
