@@ -29,6 +29,7 @@ let questions = [
   "Place the right vase on the according column - You call this working?",
   "Place the right vase on the according column - It shouldn't be too difficult.",
   "Place the right vase on the according column - Commitment is key...or is it?",
+
 ];
 
 // Load the background music.
@@ -47,15 +48,12 @@ let $vase4;
 let $vase5;
 
 // Tracking of the mouse movements to initiate new dialog popup.
-const MAX_MOUSE_MOVES = 2000;
+const MAX_MOUSE_MOVES = 1000;
 let mouseMoves = 0;
 
 $(document).ready(setup);
 
 function setup() {
-  if (mouseMoved) {
-    music.play;
-  }
 
   $column1 = $("#column1");
   // Make it droppable
@@ -156,7 +154,7 @@ function addDialog() {
     containment: "body"
   });
 
-  // Use of .offset() on the .parent() of the dialog box at the center of page.
+  // Use of .offset() on the .parent() of the dialog box and set it at the center of page.
   $dialog.parent().offset({
     center: ($(window).height(), $(window).width() - $dialog.parent().height())
   });
@@ -177,10 +175,11 @@ function randomInRange(min, max) {
 
 // handleMusic function
 function handleMusic() {
+  music.play;
   music.loop;
 }
 
 // OnDrop event
 function onDrop(event, ui) {
-  $( ".vase5" ).draggable( "OnDrop", "revertDuration", 200 );
+  //$( ".vase5" ).draggable( "OnDrop", "revertDuration", 200 );
 }
