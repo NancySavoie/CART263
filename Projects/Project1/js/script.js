@@ -31,7 +31,7 @@ let questions = [
   "Place the right vase on the according column - Commitment is key...or is it?",
   "Place the right vase on the according column - Perhaps you should quit...",
   "Place the right vase on the according column - No need for pointless struggle.",
-  "Place the right vase on the according column - Are you really up to the challenge?",
+  "Place the right vase on the according column - Are you really up to the challenge?"
 ];
 
 // Load the background music.
@@ -39,16 +39,8 @@ let music = new Audio("assets/sounds/backgroundMusic.mp3");
 music.volume = 1;
 
 // Variables to hold the columns and the vases
-let $column1;
-let $column2;
-let $column3;
-let $column4;
-let $column5;
-let $vase1;
-let $vase2;
-let $vase3;
-let $vase4;
-let $vase5;
+let $columns;
+let $vases;
 
 // Tracking of the mouse movements to initiate new dialog popup.
 const MAX_MOUSE_MOVES = 1000;
@@ -57,64 +49,32 @@ let mouseMoves = 0;
 $(document).ready(setup);
 
 function setup() {
-
-  $column1 = $("#column1");
+  $columns = $(".columns");
   // Make it droppable
-  $column1.droppable({
+  $columns.droppable({
     // The drop option specifies a function to call when a drop is completed.
     drop: onDrop
   });
-  // Repeat the same steps for the other columns.
-  $column2 = $("#column2");
-  $column2.droppable({
-    drop: onDrop
-  });
-
-  $column3 = $("#column3");
-  $column3.droppable({
-    drop: onDrop
-  });
-
-  $column4 = $("#column4");
-  $column4.droppable({
-    drop: onDrop
-  });
-
-  $column5 = $("#column5");
-  $column5.droppable({});
 
   // Get the vase element.
-  $vase1 = $("#vase1");
+  $vases = $(".vases");
   // Make it draggable an revert to original position when released.
-  $vase1.draggable({
-    revert: true
-  });
-  // Repeat for the other vases.
-  $vase2 = $("#vase2");
-  $vase2.draggable({
-    revert: true
-  });
-
-  $vase3 = $("#vase3");
-  $vase3.draggable({
-    revert: true
-  });
-
-  $vase4 = $("#vase4");
-  $vase4.draggable({
-    revert: true
-  });
-
-  $vase5 = $("#vase5");
-  $vase5.draggable({
-    revert: true
-    //revertDuration: 500,
+  $vases.draggable({
+    revert: true,
+    revertDuration: 5000
   });
 
   // Calls the mouseMoved function when mouse is moved.
   $(document).on("mousemove", mouseMoved);
   // Add a popup dialog after set amount of time.
   setTimeout(addDialog, INITIAL_DIALOG_DELAY);
+  // The .one is to tell it that only the first click really matters.
+  $(document).one("click", mouseClick);
+}
+
+//Music plays after the user clicks the mouse for the firt time
+function mouseClick() {
+  music.play();
 }
 
 // Tracking of mouse movement by player on page.
@@ -141,7 +101,7 @@ function addDialog() {
   $("body").append($dialog);
 
   // The music starts with first popup
-  handleMusic();
+  //  handleMusic();
 
   // Transforms div into dialog with help from jQuery UI's.dialog() (https://api.jqueryui.com/dialog/#option-dialogClass).
   $dialog.dialog({
@@ -177,12 +137,10 @@ function randomInRange(min, max) {
 }
 
 // handleMusic function
-function handleMusic() {
-  music.play;
-  music.loop;
-}
+//function handleMusic() {
+//  music.play;
+//  music.loop;
+//}
 
 // OnDrop event
-function onDrop(event, ui) {
-  //$( ".vase5" ).draggable( "OnDrop", "revertDuration", 200 );
-}
+function onDrop(event, ui) {}
