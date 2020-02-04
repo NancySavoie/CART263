@@ -1,55 +1,116 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      width="device-width,"
+      initial-scale="1.0,"
+      maximum-scale="1.0,"
+      user-scalable="0"
+    />
 
-  <!-- CSS stylesheet(s) -->
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- CSS stylesheet(s) -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-  <!-- Libraries -->
+    <!-- Libraries -->
 
-  <!-- jQuery! -->
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+    <!-- jQuery! -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- jQuery UI! -->
-  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
-  <script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous"></script>
+    <!-- jQuery UI! -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- My script(s) -->
-  <script src="js/script.js"></script>
-</head>
+    <!-- My script(s) -->
+    <script src="js/script.js"></script>
+  </head>
 
-<!-- Here is the audio tag that contains an MP3 we can play on the page using JavaScript. -->
-    <audio>
-  <source src="assets/sounds/backgroundMusic.mp3" type="audio/mpeg" >
-    <source src="assets/sounds/vaseSound.mp3" type="audio/mpeg" >
-</audio>
+  <!-- Here is the audio tag that contains an MP3 we can play on the page using JavaScript. -->
+  <audio>
+    <source src="assets/sounds/backgroundMusic.mp3" type="audio/mpeg" />
+    <source src="assets/sounds/vaseSound.mp3" type="audio/mpeg" />
+  </audio>
 
-<body>
-  <!-- background image -->
-  <style>
-  body {
-    background-image: url('assets/images/background.jpg');
-  }
-  </style>
-  <!-- Images for the columns and vases -->
-  <img id="column1" class="columns" src="assets/images/column1.png" style="position:absolute; bottom:35px; left:50px;">
-  <img id="column2" class="columns" src="assets/images/column2.png" style="position:absolute; bottom:35px; left:350px;">
-  <img id="column3" class="columns" src="assets/images/column3.png" style="position:absolute; bottom:35px; left:600px;">
-  <img id="column4" class="columns" src="assets/images/column4.png" style="position:absolute; bottom:35px; left:850px;">
-  <img id="column5" class="columns" src="assets/images/column5.png" style="position:absolute; bottom:35px; left:1100px;">
-  <img id="vase1" class="vases" src="assets/images/vase1.png" style="position:absolute; top:35px; left:50px;">
-  <img id="vase2" class="vases" src="assets/images/vase2.png" style="position:absolute; top:35px; left:300px;">
-  <img id="vase3" class="vases" src="assets/images/vase3.png" style="position:absolute; top:35px; left:550px;">
-  <img id="vase4" class="vases" src="assets/images/vase4.png" style="position:absolute; top:35px; left:800px;">
-  <img id="vase5" class="vases" src="assets/images/vase5.png" style="position:absolute; top:35px; left:1050px;">
-</body>
-
+  <body>
+    <!-- background image -->
+    <style>
+      body {
+        background-image: url("assets/images/background.jpg");
+      }
+    </style>
+    <!-- Images for the columns and vases -->
+    <img
+      id="column1"
+      class="columns"
+      src="assets/images/column1.png"
+      style="position:absolute; bottom:35px; left:50px;"
+    />
+    <img
+      id="column2"
+      class="columns"
+      src="assets/images/column2.png"
+      style="position:absolute; bottom:35px; left:350px;"
+    />
+    <img
+      id="column3"
+      class="columns"
+      src="assets/images/column3.png"
+      style="position:absolute; bottom:35px; left:600px;"
+    />
+    <img
+      id="column4"
+      class="columns"
+      src="assets/images/column4.png"
+      style="position:absolute; bottom:35px; left:850px;"
+    />
+    <img
+      id="column5"
+      class="columns"
+      src="assets/images/column5.png"
+      style="position:absolute; bottom:35px; left:1100px;"
+    />
+    <img
+      id="vase1"
+      class="vases"
+      src="assets/images/vase1.png"
+      style="position:absolute; top:35px; left:50px;"
+    />
+    <img
+      id="vase2"
+      class="vases"
+      src="assets/images/vase2.png"
+      style="position:absolute; top:35px; left:300px;"
+    />
+    <img
+      id="vase3"
+      class="vases"
+      src="assets/images/vase3.png"
+      style="position:absolute; top:35px; left:550px;"
+    />
+    <img
+      id="vase4"
+      class="vases"
+      src="assets/images/vase4.png"
+      style="position:absolute; top:35px; left:800px;"
+    />
+    <img
+      id="vase5"
+      class="vases"
+      src="assets/images/vase5.png"
+      style="position:absolute; top:35px; left:1050px;"
+    />
+  </body>
 </html>
