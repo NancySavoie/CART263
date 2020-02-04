@@ -32,7 +32,7 @@ let questions = [
   "Place the right vase on the according column - Perhaps you should quit...",
   "Place the right vase on the according column - No need for pointless struggle.",
   "Place the right vase on the according column - Are you really up to the challenge?",
-  "Place the right vase on the according column - Perhaps it is too difficult to solve?"
+  "Place the right vase on the according column - Perhaps it is too difficult to solve?",
 ];
 
 // Load the background music.
