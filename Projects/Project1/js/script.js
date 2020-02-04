@@ -40,7 +40,11 @@ music.volume = 1;
 
 // Variables to hold the columns and the vases
 let $columns;
-let $vases;
+let $vase1;
+let $vase2;
+let $vase3;
+let $vase4;
+let $vase5;
 
 // Tracking of the mouse movements to initiate new dialog popup.
 const MAX_MOUSE_MOVES = 1000;
@@ -57,11 +61,43 @@ function setup() {
   });
 
   // Get the vase element.
-  $vases = $(".vases");
+  $vase1 = $("#vase1");
   // Make it draggable an revert to original position when released.
-  $vases.draggable({
+  $vase1.draggable({
     revert: true,
-    revertDuration: 5000
+    revertDuration: 5000,
+  });
+
+  // Get the vase element.
+  $vase2 = $("#vase2");
+  // Make it draggable an revert to original position when released.
+  $vase2.draggable({
+    revert: true,
+    revertDuration: 20000,
+  });
+
+  // Get the vase element.
+  $vase3 = $("#vase3");
+  // Make it draggable an revert to original position when released.
+  $vase3.draggable({
+    revert: true,
+    revertDuration: 2000,
+  });
+
+  // Get the vase element.
+  $vase4 = $("#vase4");
+  // Make it draggable an revert to original position when released.
+  $vase4.draggable({
+    revert: true,
+    revertDuration: 10000,
+  });
+
+  // Get the vase element.
+  $vase5 = $("#vase5");
+  // Make it draggable an revert to original position when released.
+  $vase5.draggable({
+    revert: true,
+    revertDuration: 500,
   });
 
   // Calls the mouseMoved function when mouse is moved.
