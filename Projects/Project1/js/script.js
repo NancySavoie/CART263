@@ -32,12 +32,12 @@ let questions = [
   "Place the right vase on the according column - Perhaps you should quit...",
   "Place the right vase on the according column - No need for pointless struggle.",
   "Place the right vase on the according column - Are you really up to the challenge?",
-  "Place the right vase on the according column - Perhaps it is too difficult to solve?",
+  "Place the right vase on the according column - Perhaps it is too difficult to solve?"
 ];
 
 // Load the background music.
 let music = new Audio("assets/sounds/backgroundMusic.mp3");
-let vaseSound = new Audio("assets/sounds/vaseSound.mp3")
+let vaseSound = new Audio("assets/sounds/vaseSound.mp3");
 music.volume = 1;
 
 // Variables to hold the columns and the vases
@@ -67,7 +67,13 @@ function setup() {
   // Make it draggable an revert to original position when released.
   $vase1.draggable({
     revert: true,
-    revertDuration: 5000
+    revertDuration: 5000,
+    start: function() {
+      vaseSound.play();
+    },
+    stop: function() {
+      vaseSound.pause();
+    }
   });
 
   // Get the vase element.
@@ -75,7 +81,13 @@ function setup() {
   // Make it draggable an revert to original position when released.
   $vase2.draggable({
     revert: true,
-    revertDuration: 25000
+    revertDuration: 25000,
+    start: function() {
+      vaseSound.play();
+    },
+    stop: function() {
+      vaseSound.pause();
+    }
   });
 
   // Get the vase element.
@@ -83,7 +95,13 @@ function setup() {
   // Make it draggable an revert to original position when released.
   $vase3.draggable({
     revert: true,
-    revertDuration: 2000
+    revertDuration: 2000,
+    start: function() {
+      vaseSound.play();
+    },
+    stop: function() {
+      vaseSound.pause();
+    }
   });
 
   // Get the vase element.
@@ -91,7 +109,13 @@ function setup() {
   // Make it draggable an revert to original position when released.
   $vase4.draggable({
     revert: true,
-    revertDuration: 10000
+    revertDuration: 10000,
+    start: function() {
+      vaseSound.play();
+    },
+    stop: function() {
+      vaseSound.pause();
+    }
   });
 
   // Get the vase element.
@@ -99,7 +123,13 @@ function setup() {
   // Make it draggable an revert to original position when released.
   $vase5.draggable({
     revert: true,
-    revertDuration: 500
+    revertDuration: 500,
+    start: function() {
+      vaseSound.play();
+    },
+    stop: function() {
+      vaseSound.pause();
+    }
   });
 
   // Calls the mouseMoved function when mouse is moved.
