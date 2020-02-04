@@ -31,6 +31,7 @@ let questions = [
   "Place the right vase on the according column - Commitment is key...or is it?",
   "Place the right vase on the according column - Perhaps you should quit...",
   "Place the right vase on the according column - No need for pointless struggle.",
+  "Place the right vase on the according column - Are you really up to the challenge?",
 ];
 
 // Load the background music.
@@ -107,8 +108,8 @@ function setup() {
   $vase5 = $("#vase5");
   $vase5.draggable({
     revert: true
-  //revertDuration: 500,
-});
+    //revertDuration: 500,
+  });
 
   // Calls the mouseMoved function when mouse is moved.
   $(document).on("mousemove", mouseMoved);
