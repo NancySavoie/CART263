@@ -32,10 +32,10 @@ let questions = [
   "Place the right vase on the according column - Perhaps you should quit...",
   "Place the right vase on the according column - No need for pointless struggle.",
   "Place the right vase on the according column - Are you really up to the challenge?",
-  "Place the right vase on the according column - Perhaps it is too difficult to solve?",
+  "Place the right vase on the according column - Perhaps it is too difficult to solve?"
 ];
 
-// Load the background music.
+// Load the background music and sound effect.
 let music = new Audio("assets/sounds/backgroundMusic.mp3");
 let vaseSound = new Audio("assets/sounds/vaseSound.mp3");
 music.volume = 1;
@@ -64,7 +64,7 @@ function setup() {
 
   // Get the vase element.
   $vase1 = $("#vase1");
-  // Make it draggable an revert to original position when released.
+  // Make it draggable an revert to original position when released (after set amount of time).
   $vase1.draggable({
     revert: true,
     revertDuration: 5000,
@@ -76,9 +76,8 @@ function setup() {
     }
   });
 
-  // Get the vase element.
+  // Repeat the steps for the subsequent vases (with different revertDuration for each of them).
   $vase2 = $("#vase2");
-  // Make it draggable an revert to original position when released.
   $vase2.draggable({
     revert: true,
     revertDuration: 25000,
@@ -90,9 +89,7 @@ function setup() {
     }
   });
 
-  // Get the vase element.
   $vase3 = $("#vase3");
-  // Make it draggable an revert to original position when released.
   $vase3.draggable({
     revert: true,
     revertDuration: 2000,
@@ -104,9 +101,7 @@ function setup() {
     }
   });
 
-  // Get the vase element.
   $vase4 = $("#vase4");
-  // Make it draggable an revert to original position when released.
   $vase4.draggable({
     revert: true,
     revertDuration: 10000,
@@ -118,9 +113,7 @@ function setup() {
     }
   });
 
-  // Get the vase element.
   $vase5 = $("#vase5");
-  // Make it draggable an revert to original position when released.
   $vase5.draggable({
     revert: true,
     revertDuration: 500,
@@ -140,7 +133,7 @@ function setup() {
   $(document).one("click", mouseClick);
 }
 
-//Music plays after the user clicks the mouse for the firt time
+//Music plays after the user clicks the mouse for the firt time.
 function mouseClick() {
   music.play();
 }
