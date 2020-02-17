@@ -147,63 +147,50 @@ let animals = [
   "zebra"
 ];
 
-// We need to track the correct answer for each round
-let correctAnimal;
-// We also track all the possibly answers (mostly so we can switch their order around)
-let answers = [];
-
 // How many possible answers there are per round
 const NUM_OPTIONS = 5;
 
-// Get setup!
+// Variable to keep track of the score
+let score = 0;
+let correctAnimal;
+let answers = [];
+
+// Annyang variables
+let speechRepeat;
+let speechSurrender;
+let speechGuess;
+
+// Get setup
 $(document).ready(setup);
 
 // setup()
-//
-// We just start a new round right away!
 function setup() {
+  $('body').append(`<p id="theScore"> Score: ${score} </p>`)
+   speechRepeat = {"Say it again": repeat};
+   speechSurrender = {"I give up": surrender};
+   speechGuess = {"The answer is *animal": guess};
+   annyang.addCommands(speechRepeat);
+   annyang.addCommands(speechSurrender);
+   annyang.addCommands(speechGuess);
+   annyang.start({autoRestart: false});
   newRound();
 }
 
 // newRound()
-//
-// Generates a set of possible answers randomly from the set of animals
-// and adds buttons for each one. Then chooses the correct answer randomly.
 function newRound() {
-  // We empty the answer array for the new round
   answers = [];
-  // Loop for each option we'll offter
   for (let i = 0; i < NUM_OPTIONS; i++) {
-    // Choose the answer text randomly from the animals array
     let answer = animals[Math.floor(Math.random() * animals.length)];
-    // Add a button with this label
     addButton(answer);
-    // Add this answer to the answers array
     answers.push(answer);
   }
 
-  // Choose a random answer from the answers as our correct answer
   correctAnimal = answers[Math.floor(Math.random() * answers.length)];
-
-  // Say the name of the animal
   sayBackwards(correctAnimal);
 }
 
 // sayBackwards(text)
-//
-// Uses ResponsiveVoice to say the specified text backwards!
 function sayBackwards(text) {
-  // We create a reverse version of the name by:
-  // 1. using .split('') to split the string into an array with each character
-  // as a separate element.
-  // e.g. "bat" -> ['b','a','t']
-  // 2. using .reverse() on the resulting array to create a reverse version
-  // e.g. ['b','a','t'] -> ['t','a','b']
-  // 3. using .join('') on the resulting array to create a string version of the array
-  // with each element forming the string (joined together with nothing in between)
-  // e.g. ['t','a','b'] -> "tab"
-  // (We do this all in one line using "chaining" because .split() returns an array for
-  // for .reverse() to work on, and .reverse() returns an array for .join() to work on.)
   let backwardsText = text.split('').reverse().join('');
 
   // Set some random numbers for the voice's pitch and rate parameters for a bit of fun
@@ -212,15 +199,11 @@ function sayBackwards(text) {
     rate: Math.random()
   };
 
-  // Use ResponsiveVoice to speak the string we generated, with UK English Male voice
-  // and the options we just specified.
+  // Use ResponsiveVoice with UK English Male voice
   responsiveVoice.speak(backwardsText, 'UK English Male', options);
 }
 
 // addButton(label)
-//
-// Creates a button using jQuery UI on a div with the label specified
-// and adds it to the page.
 function addButton(label) {
   // Create a div with jQuery using HTML
   let $button = $('<div></div>');
@@ -237,22 +220,15 @@ function addButton(label) {
 }
 
 // handleGuess()
-//
-// Checks whether this was the correct guess (button) and
-// if so starts a new round
-// if not indicates it was incorrect
 function handleGuess() {
-  // If the button they clicked on has a label matching the correct answer...
   if ($(this).text() === correctAnimal) {
-    // Remove all the buttons
     $('.guess').remove();
-    // Start a new round
     setTimeout(newRound, 1000);
   }
   else {
-    // Otherwise they were wrong, so shake the button
     $(this).effect('shake');
-    // And say the correct animal again to "help" them
     speakAnimal(correctAnimal);
   }
+
+
 }
