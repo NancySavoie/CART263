@@ -162,6 +162,7 @@ function setup() {
   showScore();
 }
 
+// AddButton()
 function addButton(label) {
   let $button = $("<div></div>");
   $button.addClass("guess");
@@ -178,7 +179,7 @@ if (annyang) {
       $(".guess").each(checkAnswer);
       score = 0;
       resetScore();
-      setTimeout(newRound, 1000);
+      setTimeout(newRound, 500);
     }
   };
 
@@ -199,8 +200,7 @@ if (annyang) {
             updateScore();
           }
         });
-      }
-      else {
+      } else {
         resetScore();
       }
       setTimeout(newRound, 500);
@@ -264,7 +264,10 @@ function sayBackward(text) {
     .split("")
     .reverse()
     .join("");
-  let options = { rate: 1, pitch: 3 };
+  let options = {
+    rate: 1,
+    pitch: 3
+  };
   responsiveVoice.speak(backwardsText, "UK English Male", options);
 }
 
