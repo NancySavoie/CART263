@@ -7,9 +7,10 @@ by Nancy Savoie
 
 Original Code by Pippin Barr
 
+Help from // https://www.geeksforgeeks.org/javascript-string-prototype-tolowercase/
 ******************/
 
-// An array of animal names that we use to create our guessing game
+// The Animals array
 let animals = [
   "aardvark",
   "alligator",
@@ -147,88 +148,129 @@ let animals = [
   "zebra"
 ];
 
-// How many possible answers there are per round
-const NUM_OPTIONS = 5;
-
-// Variable to keep track of the score
-let score = 0;
+// Variables
 let correctAnimal;
 let answers = [];
+let score = 0;
+const NUM_OPTIONS = 5;
 
-// Annyang variables
-let speechRepeat;
-let speechSurrender;
-let speechGuess;
-
-// Get setup
 $(document).ready(setup);
 
-// setup()
+// Setup
 function setup() {
-  $('body').append(`<p id="theScore"> Score: ${score} </p>`)
-   speechRepeat = {"Say it again": repeat};
-   speechSurrender = {"I give up": surrender};
-   speechGuess = {"The answer is *animal": guess};
-   annyang.addCommands(speechRepeat);
-   annyang.addCommands(speechSurrender);
-   annyang.addCommands(speechGuess);
-   annyang.start({autoRestart: false});
   newRound();
+  showScore();
+}
+
+function addButton(label) {
+  let $button = $("<div></div>");
+  $button.addClass("guess");
+  $button.text(label);
+  $button.button();
+  $button.on("click", handleGuess);
+  $("body").append($button);
+}
+
+// say I give up
+if (annyang) {
+  let iGiveUp = {
+    "I Give Up": function() {
+      $(".guess").each(checkAnswer);
+      score = 0;
+      resetScore();
+      setTimeout(newRound, 1000);
+    }
+  };
+
+  // Say It again
+  let sayItAgain = {
+    "Say It Again": function() {
+      sayBackwards(correctAnimal);
+    }
+  };
+
+  // Say I think it is
+  let iThinkItIs = {
+    "I Think It Is *animal": function(animal) {
+      if (animal.toLowerCase() === correctAnimal.toLowerCase()) {
+        $(".guess").each(function(index) {
+          let temp = $(this).text();
+          if (correctAnimal.toLowerCase() === temp.toLowerCase()) {
+            updateScore();
+          }
+        });
+      }
+      else {
+        resetScore();
+      }
+      setTimeout(newRound, 500);
+    }
+  };
+
+  //Annyang commands
+  annyang.addCommands(iGiveUp);
+  annyang.addCommands(sayItAgain);
+  annyang.addCommands(iThinkItIs);
+  annyang.start();
 }
 
 // newRound()
 function newRound() {
   answers = [];
+  $(".guess").remove();
   for (let i = 0; i < NUM_OPTIONS; i++) {
-    let answer = animals[Math.floor(Math.random() * animals.length)];
-    addButton(answer);
-    answers.push(answer);
+    let theAnswer = animals[Math.floor(Math.random() * animals.length)];
+    addButton(theAnswer);
+    answers.push(theAnswer);
   }
-
   correctAnimal = answers[Math.floor(Math.random() * answers.length)];
-  sayBackwards(correctAnimal);
-}
-
-// sayBackwards(text)
-function sayBackwards(text) {
-  let backwardsText = text.split('').reverse().join('');
-
-  // Set some random numbers for the voice's pitch and rate parameters for a bit of fun
-  let options = {
-    pitch: Math.random(),
-    rate: Math.random()
-  };
-
-  // Use ResponsiveVoice with UK English Male voice
-  responsiveVoice.speak(backwardsText, 'UK English Male', options);
-}
-
-// addButton(label)
-function addButton(label) {
-  // Create a div with jQuery using HTML
-  let $button = $('<div></div>');
-  // Give it the guess class
-  $button.addClass("guess");
-  // Set the text in the div to our label
-  $button.text(label);
-  // Turn the div into a button using jQuery UI's .button() method
-  $button.button();
-  // Listen for a click on the button which means the user has guessed
-  $button.on('click', handleGuess);
-  // Finally, add the button to the page so we can see it
-  $('body').append($button);
+  sayBackward(correctAnimal);
 }
 
 // handleGuess()
 function handleGuess() {
   if ($(this).text() === correctAnimal) {
-    $('.guess').remove();
-    setTimeout(newRound, 1000);
+    $(".guess").remove();
+    setTimeout(newRound, 500);
+    updateScore();
+  } else {
+    $(".guess").effect("shake");
+    sayBackward(correctAnimal);
+    score = 0;
+    resetScore();
   }
-  else {
-    $(this).effect('shake');
-    speakAnimal(correctAnimal);
+}
+
+// updateScore()
+function updateScore() {
+  score += 1;
+  showScore();
+}
+
+// resetScore()
+function resetScore() {
+  score = 0;
+  showScore();
+}
+
+// showScore()
+function showScore() {
+  let $score = $("#score");
+  $score.text("Score:" + score);
+}
+// sayBackward()
+function sayBackward(text) {
+  let backwardsText = text
+    .split("")
+    .reverse()
+    .join("");
+  let options = { rate: 1, pitch: 3 };
+  responsiveVoice.speak(backwardsText, "UK English Male", options);
+}
+
+// getAnswer()
+function getAnswer() {
+  if ($(this).text() === correctAnimal) {
+    $(this).effect("shake");
   }
-
-
 }
