@@ -1,22 +1,80 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      width="device-width,"
+      initial-scale="1.0,"
+      maximum-scale="1.0,"
+      user-scalable="0"
+    />
 
     <!-- CSS stylesheet(s) -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-    <!-- Library script(s) -->
-    <!-- Add your required libraries here either as local files or CDN-hosted files -->
+    <!-- Libraries -->
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- jQuery UI -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
 
     <!-- My script(s) -->
     <script src="js/script.js"></script>
   </head>
 
-  <body>
+  <!-- Here is the audio tag that contains an MP3 we can play on the page using JavaScript. -->
+  <audio>
+    <source src="assets/sounds/backgroundMusic.mp3" type="audio/mpeg" />
+      <!-- <source src="assets/sounds/robotSound.mp3" type="audio/mpeg" />-->
+  </audio>
 
-
-  </body>
-
-</html>
+    <body>
+        <!-- background image -->
+        <style>
+          body {
+            background-image: url("assets/images/background.jpg");
+          }
+        </style>
+        <!-- Images for the columns and vases -->
+        <img
+          id="robot1"
+          class="robots"
+          src="assets/images/robot1.png"
+          style="position:absolute; bottom:35px; left:50px;"
+        />
+        <img
+          id="robot2"
+          class="robots"
+          src="assets/images/robot2.png"
+          style="position:absolute; bottom:35px; left:350px;"
+        />
+        <img
+          id="robot3"
+          class="robots"
+          src="assets/images/robot3.png"
+          style="position:absolute; bottom:35px; left:600px;"
+        />
+        <img
+          id="robot4"
+          class="robots"
+          src="assets/images/robot4.png"
+          style="position:absolute; bottom:35px; left:850px;"
+        />
+      </body>
+    </html>
