@@ -23,11 +23,16 @@ let $trashFingerPuppet;
 let $trashHeadSwitch;
 let $trashRandomGenerator;
 let $trashRapeShirt;
-let timer
+let timer // To eventually stop the animation
 
 $(document).ready(setup);
 
 function setup() {
+//Responsive voice with welcome message.
+responsiveVoice.speak(
+"Welcome human. I am from the future. The year 3021 to be exact. Please help me understand the decimation of human intelligence by feeding me your internet garbage",
+"UK English Female",
+{pitch: 0.5, rate: 1});
 $robot = $("#robot");
 // The trash elements
 $trashFingerPuppet = $("#trashFingerPuppet");
@@ -44,68 +49,12 @@ $robot.droppable({
   });
 }
 
-// Get the trash element.
-
-
-  // Repeat the steps for the subsequent vases (with different revertDuration for each of them).
-//$trashHeadSwitch = $("#trashHeadSwitch");
-//$trashHeadSwitch.draggable({
-//revert: true,
-//revertDuration: 25000,
-// start: function() {
-    //  vaseSound.play();
-//  },
-//stop: function() {
-      //vaseSound.pause();
-//  }
-//});
-
-//$trashRandomGenerator = $("#trashRandomGenerator");
-//$trashRandomGenerator.draggable({
-//revert: true,
-//revertDuration: 2000,
-//start: function() {
-//      vaseSound.play();
-//  },
-// stop: function() {
-//      vaseSound.pause();
-//  }
-// });
-
-//$trashRapeShirt = $("#trashRapeShirt");
-//$trashRapeShirt.draggable({
-// revert: true,
-// revertDuration: 10000,
-//  start: function() {
-//      vaseSound.play();
-//  },
-// stop: function() {
-//      vaseSound.pause();
-//   }
-//  });
-
-
-  // Calls the mouseMoved function when mouse is moved.
-//  $(document).on("mousemove", mouseMoved);
-  $(document).one("click", mouseClick);
-
+$(document).one("click", mouseClick);
 
 //Music plays after the user clicks the mouse for the firt time.
 function mouseClick() {
   music.play();
 }
-
-// Tracking of mouse movement by player on page.
-//function mouseMoved() {
-//  mouseMoves++;
-  // Check if it goes beyond the set maximum.
-//  if (mouseMoves > MAX_MOUSE_MOVES) {
-    // If it does, dialog is added.
-  //  addDialog();
-    // Counter reset.
-  //  mouseMoves = 0;
-//  }
-//}
 
 // OnDrop event
 function onDrop(event, ui) {
@@ -113,8 +62,23 @@ function onDrop(event, ui) {
   ui.draggable.remove();
   timer = setInterval(feedInternet, 250);
   setTimeout(stop, 2000);
+// Message for the Finger puppets
+  if ($trashFingerPuppet.draggable())
+  responsiveVoice.speak(
+  "This makes me sad",
+  "UK English Female",
+  {pitch: 0.5, rate: 1});
+ else {
+// Message for
+$trashRandomGenerator.draggable();
+responsiveVoice.speak(
+"What is this",
+"UK English Female",
+{pitch: 0.5, rate: 1});
 }
 
+
+// Function that creates a small animation when the robot is fed internet garbage.
 function feedInternet(){
   if ($robot.attr("src") === "assets/images/robotNormal.png") {
     $robot.attr("src", "assets/images/robotSad.png");
@@ -123,7 +87,9 @@ function feedInternet(){
   }
 }
 
+// This function clears the interval action between the images that create the short animation.
 function stop(){
 clearInterval(timer);
 $robot.attr("src", "assets/images/robotNormal.png");
+}
 }
