@@ -2,10 +2,10 @@
 
 /********************************************************************
 
-Welcome to the Future (of the Internet)
+Welcome to the Future
 Project 2 - Nancy Savoie
 
-A small game about feeding our internet to a robot from the future so he may learn our ways.
+A small game about feeding our internet to a robot from the future so he may understand our ways.
 
 Inspired by class exercises and examples by Pippin Barr.
 Images: Nancy Savoie and creative commons (Vecteezy & Freepik).
@@ -25,27 +25,33 @@ let $trashRandomGenerator;
 let $trashRapeShirt;
 let timer // Set to eventually stop the animation after the robot is fed internet garbage.
 // An array of voice messages for the robot.
-let voiceMessages = [
-  'This makes me sad',
-  'What is this?',
-  'System failing',
-  'Oh. My. God.',
-];
+//let voiceMessages = [
+//  'This makes me sad',
+//  'What is this?',
+//  'System failing',
+//  'Oh. My. God.',
+//];
 
 $(document).ready(setup);
 
 function setup() {
-//Responsive voice with welcome message.
+  // Responsive voice with welcome message and directions.
+  responsiveVoice.speak(
+  "Welcome human survivor. Click the mouse for some mood music.",
+  "UK English Female",
+  {pitch: 0.5, rate: 1});
+  setTimeout(function(){
+// Responsive voice with welcome message and directions.
 responsiveVoice.speak(
-"Welcome human survivor. Click the mouse for some mood music. Now let us begin. I am from the future. The year 3021 to be exact. Please help me understand the decimation of human intelligence by feeding me your internet garbage",
+"Good. Now let us begin. I am from the future. The year 3021 to be exact. Please help me understand the decimation of human intelligence by feeding me your in-ternet garbage",
 "UK English Female",
-{pitch: 0.5, rate: 1});
+{pitch: 0.5, rate: 1})}, 7700);
 $robot = $("#robot");
 $robot.droppable({
 // The drop option specifies a function to call when a drop is completed.
     drop: onDrop
   });
-// The trash elements
+// The "trash" elements
 $trashFingerPuppet = $("#trashFingerPuppet");
 $trashFingerPuppet.draggable();
 $trashHeadSwitch = $("#trashHeadSwitch");
@@ -68,23 +74,23 @@ function onDrop(event, ui) {
   console.log("Drop");
   ui.draggable.remove();
   timer = setInterval(feedInternet, 250);
-  setTimeout(stop, 2000); // The animation stops after 2 seconds
-// Message for the Finger puppets
-  if ($("#trashFingerPuppet"))
+  setTimeout(stop, 2000); // The animation between images stops after 2 seconds.
+// Voice message for the Finger puppets
+  if ($trashFingerPuppet.draggable())
   responsiveVoice.speak(
   "This makes me sad",
   "UK English Female",
   {pitch: 0.5, rate: 1});
-// Message for
+// Voice message for Head Switch
  else if
-($("#trashHeadSwitch"))
+($trashHeadSwitch.draggable())
 responsiveVoice.speak(
 "What is this",
 "UK English Female",
 {pitch: 0.5, rate: 1});
 }
 
-// Function that creates a small animation when the robot is fed internet garbage.
+// Function that creates a small animation between the images when the robot is fed internet garbage.
 function feedInternet(){
   if ($robot.attr("src") === "assets/images/robotNormal.png") {
     $robot.attr("src", "assets/images/robotSad.png");
