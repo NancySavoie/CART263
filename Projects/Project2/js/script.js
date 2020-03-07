@@ -2,10 +2,10 @@
 
 /********************************************************************
 
-Welcome to the Future
+Welcome to the Future (of the internet)
 Project 2 - Nancy Savoie
 
-A small game about feeding our internet to a robot from the future so he may understand our ways.
+A small program about feeding our internet to a robot from the future so he may understand our ways.
 Inspired by class exercises and examples by Pippin Barr as well as web examples.
 
 Images: Nancy Savoie and creative commons (Vecteezy & Freepik).

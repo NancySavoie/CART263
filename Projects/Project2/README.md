@@ -1,0 +1,14 @@
+# CART263
+CART 263 Project 2 - Welcome to the Future (of the internet)
+
+With James Bridle's essay, Something is wrong on the internet, in mind as Project 2’s inspiration, the opportunity to poke at troubling facets of the internet was an interesting goal. It led me to think about the future, how will these mind numbing videos and disturbing word generators affect future generations in the long run? As a satire, I chose a distant “futuristic” setting (much like how the future was perceived decades ago) to showcase some of the ridiculous aspects of the internet pointed out in Bridle’s text.
+
+Vector art is a simple yet effective way to clearly convey moods, colors and shapes. With a very sterile color palette of mainly whites and blues, I chose to represent a vintage look of the future as a way to go back to simpler times. The background music, from Disney’s Tomorrowland section of the theme parks, is a perfect companion to this nostalgic era. Furthermore, the sound effects used during the dragging of the trash elements is also evocative of a dated impression of technological sounds.
+
+The design of the robot and trash elements are simple and minimalistic yet clear and efficient. For the trash elements, I decided to portray what I found to be the most perplexing aspects of James Bridle’s essay, the family finger puppet obsession, the head swap videos (amongst so many weird ones) and the perturbing word generators also resulting in odd merchandise. Al of the elements be simplified into images for the robot to consume.
+
+I chose to create gif animations of the little robot so the user is not constantly faced with static images. Some light movement brings some life in an otherwise computerized environment. For the speech synthesis, I decided to set a specific pitch and rate of the female UK voice so that it may emulate a more robotic tone. While the voice command is only used at the beginning of the program, it is an interesting and interactive way to create synergy from the start and connect with the medium.
+
+The program mainly consists of click and drag interactions that triggers voice reactions and animations from the robot. Built upon existing codes seen in class through exercises as well as help found on the web, this project is put into effect by jQuery, jQuery UI and ResponsiveVoice (with small implementations of Annyang) as primary forms of display and interactions.
+
+With coding as an ever present challenge for me, I found gratification in being able to overcome challenges (such as creating a start page with voice command or even adding animation with certain interactions). I also wish to thank you once more for the extension I was so graciously allowed for this project. Though the code might be the tidiest and I certainly wish I would have been able to create more, I am grateful to be able to at least present a finished project.
