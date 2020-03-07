@@ -10,12 +10,13 @@ A small game about feeding our internet to a robot from the future so he may und
 Inspired by class exercises and examples by Pippin Barr.
 Images: Nancy Savoie and creative commons (Vecteezy & Freepik).
 Music: Tomorrowland Area Music Loop (YouTube).
+Sound effects: http://soundbible.com/
 
 *********************************************************************/
 
-
 // Load the background music and sound effect.
 let music = new Audio("assets/sounds/backgroundMusic.mp3");
+let trashSound = new Audio("assets/sounds/trashSound.mp3");
 
 // Variables to hold the robot and the internet trash objects
 let $robot;
@@ -31,7 +32,6 @@ let currentDraggable = 0;
 $(document).ready(setup);
 
 function setup() {
-
   // Responsive voice with welcome message and directions.
   responsiveVoice.speak(
     "Welcome human survivor. Click the mouse for some mood music.",
@@ -48,7 +48,7 @@ function setup() {
         pitch: 0.5,
         rate: 1
       })
-  }, 7700);
+  }, 7700);  // Ammount of time before the robot speaks again.
   $robot = $("#robot");
   $robot.droppable({
     // The drop option specifies a function to call when a drop is completed.
@@ -58,13 +58,29 @@ function setup() {
   // The "trash" elements are made draggable and are assigned a number.
   $trashFingerPuppet = $("#trashFingerPuppet");
   $trashFingerPuppet.draggable({
+    revert: true,
+    revertDuration: 5000,
+    start: function() {
+      trashSound.play();
+    },
+    stop: function() {
+      trashSound.pause();
+    },
     drag: function(event, ui) {
       currentDraggable = 1;
     }
   });
-
+// Head switch
   $trashHeadSwitch = $("#trashHeadSwitch");
   $trashHeadSwitch.draggable({
+    revert: true,
+    revertDuration: 5000,
+    start: function() {
+      trashSound.play();
+    },
+    stop: function() {
+      trashSound.pause();
+    },
     drag: function(event, ui) {
       currentDraggable = 2;
     }
@@ -72,6 +88,14 @@ function setup() {
 
   $trashRandomGenerator = $("#trashRandomGenerator");
   $trashRandomGenerator.draggable({
+    revert: true,
+    revertDuration: 5000,
+    start: function() {
+      trashSound.play();
+    },
+    stop: function() {
+      trashSound.pause();
+    },
     drag: function(event, ui) {
       currentDraggable = 3;
     }
@@ -79,6 +103,14 @@ function setup() {
 
   $trashRapeShirt = $("#trashRapeShirt");
   $trashRapeShirt.draggable({
+    revert: true,
+    revertDuration: 5000,
+    start: function() {
+      trashSound.play();
+    },
+    stop: function() {
+      trashSound.pause();
+    },
     drag: function(event, ui) {
       currentDraggable = 4;
     }
@@ -90,7 +122,6 @@ $(document).one("click", mouseClick);
 //Music plays after the user clicks the mouse for the firt time.
 function mouseClick() {
   music.play();
-  music.stop();
 }
 
 // OnDrop event
