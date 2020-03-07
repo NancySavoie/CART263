@@ -9,7 +9,7 @@ A small game about feeding our internet to a robot from the future so he may und
 Inspired by class exercises and examples by Pippin Barr as well as web examples.
 
 Images: Nancy Savoie and creative commons (Vecteezy & Freepik).
-Music: Tomorrowland Area Music Loop (YouTube).
+Background Music: Tomorrowland Area Music Loop (YouTube).
 Sound effects: http://soundbible.com/
 Helpful website: https://www.codeseek.co/
 
@@ -152,7 +152,8 @@ function onDrop(event, ui) {
   console.log("Drop");
   ui.draggable.remove();
   timer = setInterval(feedInternet, 250);
-  setTimeout(stop, 2000); // The animation between images stops after 2 seconds.
+  // The animation between images stops after 2 seconds.
+  setTimeout(stop, 2000);
   // Voice message response for each of the trash elements.
   // It finds the right voiceline based on their number.
   if (currentDraggable === 1) {
@@ -212,14 +213,17 @@ function off() {
 // The function that checks if all the trash elements were dropped on the robot.
 function checkIfAllDropped() {
   if (imagesDropped >= 4) {
-    setTimeout(function () {
-      responsiveVoice.speak("Enough. I am done. Please. No more.", "UK English Female", {
-        pitch: 0.5,
-        rate: 1
-      });
+    setTimeout(function() {
+      responsiveVoice.speak(
+        "Enough. I am done. Please. No more.",
+        "UK English Female",
+        {
+          pitch: 0.5,
+          rate: 1
+        }
+      );
       // Gif image changes after the robot has had enough of the internet.
-      $robot.attr("src", "assets/images/robotSad.gif")
+      $robot.attr("src", "assets/images/robotSad.gif");
     }, 2000);
-
   }
 }
