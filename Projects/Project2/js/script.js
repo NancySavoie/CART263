@@ -59,7 +59,7 @@ function setup() {
   $trashFingerPuppet = $("#trashFingerPuppet");
   $trashFingerPuppet.draggable({
     revert: true,
-    revertDuration: 5000,
+    revertDuration: 500,
     start: function() {
       trashSound.play();
     },
@@ -74,7 +74,7 @@ function setup() {
   $trashHeadSwitch = $("#trashHeadSwitch");
   $trashHeadSwitch.draggable({
     revert: true,
-    revertDuration: 5000,
+    revertDuration: 500,
     start: function() {
       trashSound.play();
     },
@@ -89,7 +89,7 @@ function setup() {
   $trashRandomGenerator = $("#trashRandomGenerator");
   $trashRandomGenerator.draggable({
     revert: true,
-    revertDuration: 5000,
+    revertDuration: 500,
     start: function() {
       trashSound.play();
     },
@@ -104,7 +104,7 @@ function setup() {
   $trashRapeShirt = $("#trashRapeShirt");
   $trashRapeShirt.draggable({
     revert: true,
-    revertDuration: 5000,
+    revertDuration: 500,
     start: function() {
       trashSound.play();
     },
@@ -170,15 +170,15 @@ function onDrop(event, ui) {
 
 // Function that creates a small animation between the images when the robot is fed internet garbage.
 function feedInternet() {
-  if ($robot.attr("src") === "assets/images/robotNormal.png") {
+  if ($robot.attr("src") === "assets/images/robotNormal.gif") {
     $robot.attr("src", "assets/images/robotSad.png");
   } else {
-    $robot.attr("src", "assets/images/robotNormal.png");
+    $robot.attr("src", "assets/images/robotNormal.gif");
   }
 }
 
 // This function clears the interval action between the images that create the short animation.
 function stop() {
   clearInterval(timer);
-  $robot.attr("src", "assets/images/robotNormal.png");
+  $robot.attr("src", "assets/images/robotNormal.gif");
 }
