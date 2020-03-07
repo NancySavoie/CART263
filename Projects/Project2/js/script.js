@@ -28,93 +28,117 @@ let $trashRapeShirt;
 let timer;
 // Variable for the number value of the dragged trash image.
 let currentDraggable = 0;
+let $command = "I am ready";
+// The start screen <div> with Annyang directions.
+let startScreen;
+
 
 $(document).ready(setup);
 
 function setup() {
-  // Responsive voice with welcome message and directions.
+
+
+// Responsive voice with welcome message and directions.
+setTimeout(function() {
   responsiveVoice.speak(
     "Welcome human survivor. Click the mouse for some mood music.",
-    "UK English Female", {
+    "UK English Female",
+    {
       pitch: 0.5,
       rate: 1
-    });
-  // setTimeout function to create a pause between responsive voice dialogue.
-  setTimeout(function() {
-    // Responsive voice with welcome message and directions.
-    responsiveVoice.speak(
-      "Good. Now let us begin. I am from the future. The year 3021 to be exact. Please help me understand the decimation of human intelligence by feeding me your in-ternet garbage",
-      "UK English Female", {
-        pitch: 0.5,
-        rate: 1
-      })
-  }, 7700);  // Ammount of time before the robot speaks again.
-  $robot = $("#robot");
-  $robot.droppable({
-    // The drop option specifies a function to call when a drop is completed.
-    drop: onDrop
-  });
+    }
+  );
+}, 5000); // Ammount of time before the robot speaks for the first time to give enough time for the user to talk to annyang.
 
-  // The "trash" elements are made draggable and are assigned a number.
-  $trashFingerPuppet = $("#trashFingerPuppet");
-  $trashFingerPuppet.draggable({
-    revert: true,
-    revertDuration: 500,
-    start: function() {
-      trashSound.play();
-    },
-    stop: function() {
-      trashSound.pause();
-    },
-    drag: function(event, ui) {
-      currentDraggable = 1;
+// setTimeout function to create a pause between responsive voice dialogue.
+setTimeout(function() {
+  // Responsive voice with welcome message and directions.
+  responsiveVoice.speak(
+    "Good. Now let us begin. I am from the future. The year 3021 to be exact. Please help me understand the decimation of human intelligence by feeding me your in-ternet garbage",
+    "UK English Female",
+    {
+      pitch: 0.5,
+      rate: 1
     }
-  });
-// Head switch
-  $trashHeadSwitch = $("#trashHeadSwitch");
-  $trashHeadSwitch.draggable({
-    revert: true,
-    revertDuration: 500,
-    start: function() {
-      trashSound.play();
-    },
-    stop: function() {
-      trashSound.pause();
-    },
-    drag: function(event, ui) {
-      currentDraggable = 2;
-    }
-  });
+  );
+}, 10000); // Ammount of time before the robot speaks again.
+$robot = $("#robot");
+$robot.droppable({
+  // The drop option specifies a function to call when a drop is completed.
+  drop: onDrop
+});
 
-  $trashRandomGenerator = $("#trashRandomGenerator");
-  $trashRandomGenerator.draggable({
-    revert: true,
-    revertDuration: 500,
-    start: function() {
-      trashSound.play();
-    },
-    stop: function() {
-      trashSound.pause();
-    },
-    drag: function(event, ui) {
-      currentDraggable = 3;
-    }
-  });
+// The "trash" elements are made draggable and are assigned a number.
+$trashFingerPuppet = $("#trashFingerPuppet");
+$trashFingerPuppet.draggable({
+  revert: true,
+  revertDuration: 500,
+  start: function() {
+    trashSound.play();
+  },
+  stop: function() {
+    trashSound.pause();
+  },
+  drag: function(event, ui) {
+    currentDraggable = 1;
+  }
+});
 
-  $trashRapeShirt = $("#trashRapeShirt");
-  $trashRapeShirt.draggable({
-    revert: true,
-    revertDuration: 500,
-    start: function() {
-      trashSound.play();
-    },
-    stop: function() {
-      trashSound.pause();
-    },
-    drag: function(event, ui) {
-      currentDraggable = 4;
-    }
-  });
+$trashHeadSwitch = $("#trashHeadSwitch");
+$trashHeadSwitch.draggable({
+  revert: true,
+  revertDuration: 500,
+  start: function() {
+    trashSound.play();
+  },
+  stop: function() {
+    trashSound.pause();
+  },
+  drag: function(event, ui) {
+    currentDraggable = 2;
+  }
+});
+
+$trashRandomGenerator = $("#trashRandomGenerator");
+$trashRandomGenerator.draggable({
+  revert: true,
+  revertDuration: 500,
+  start: function() {
+    trashSound.play();
+  },
+  stop: function() {
+    trashSound.pause();
+  },
+  drag: function(event, ui) {
+    currentDraggable = 3;
+  }
+});
+
+$trashRapeShirt = $("#trashRapeShirt");
+$trashRapeShirt.draggable({
+  revert: true,
+  revertDuration: 500,
+  start: function() {
+    trashSound.play();
+  },
+  stop: function() {
+    trashSound.pause();
+  },
+  drag: function(event, ui) {
+    currentDraggable = 4;
+  }
+});
+
+// Annyang -> Making sure it is available.
+let command = {
+  // This hides the start screen <div>.
+  "I am ready": off
+};
+// Annyang commands.
+annyang.addCommands(command);
+
+// Tell annyang to start.
+annyang.start();
 }
 
 $(document).one("click", mouseClick);
@@ -131,41 +155,31 @@ function onDrop(event, ui) {
   timer = setInterval(feedInternet, 250);
   setTimeout(stop, 2000); // The animation between images stops after 2 seconds.
   // Voice message response for each of the trash elements.
-  // Find the right voiceline based on their number.
+  // It finds the right voiceline based on their number.
   if (currentDraggable === 1) {
-    responsiveVoice.speak(
-      "What is this?",
-      "UK English Female", {
-        pitch: 0.5,
-        rate: 1
-      });
-
-  };
+    responsiveVoice.speak("What is this?", "UK English Female", {
+      pitch: 0.5,
+      rate: 1
+    });
+  }
   if (currentDraggable === 2) {
-    responsiveVoice.speak(
-      "This makes me sad.",
-      "UK English Female", {
-        pitch: 0.5,
-        rate: 1
-      });
-
-  };
+    responsiveVoice.speak("This makes me sad.", "UK English Female", {
+      pitch: 0.5,
+      rate: 1
+    });
+  }
   if (currentDraggable === 3) {
-    responsiveVoice.speak(
-      "Why?",
-      "UK English Female", {
-        pitch: 0.5,
-        rate: 1
-      });
-  };
+    responsiveVoice.speak("Why?", "UK English Female", {
+      pitch: 0.5,
+      rate: 1
+    });
+  }
   if (currentDraggable === 4) {
-    responsiveVoice.speak(
-      "System...failing...",
-      "UK English Female", {
-        pitch: 0.5,
-        rate: 1
-      });
-  };
+    responsiveVoice.speak("System...failing...", "UK English Female", {
+      pitch: 0.5,
+      rate: 1
+    });
+  }
 }
 
 // Function that creates a small animation between the images when the robot is fed internet garbage.
@@ -181,4 +195,9 @@ function feedInternet() {
 function stop() {
   clearInterval(timer);
   $robot.attr("src", "assets/images/robotNormal.gif");
+}
+
+// This removes the start screen.
+function off() {
+document.getElementById("startscreen").style.display = "none";
 }
