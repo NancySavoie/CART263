@@ -34,7 +34,6 @@ function dataLoaded(data) {
   // The cats
   let cat = getRandomElement(data.cats);
   console.log(cat);
-
   let catArticle = "a";
   if (
     cat.charAt(0).toLowerCase() === "a" ||
@@ -49,7 +48,6 @@ function dataLoaded(data) {
   // The rooms
   let room = getRandomElement(data.rooms);
   console.log(room);
-
   let roomArticle = "a";
   if (
     room.charAt(0).toLowerCase() === "a" ||
@@ -64,7 +62,6 @@ function dataLoaded(data) {
   // The teas
   let tea = getRandomElement(data.teas);
   console.log(tea);
-
   let teaArticle = "a";
   if (
     tea.charAt(0).toLowerCase() === "a" ||
@@ -79,7 +76,6 @@ function dataLoaded(data) {
   // The fruits
   let fruit = getRandomElement(data.fruits);
   console.log(fruit);
-
   let fruitArticle = "a";
   if (
     fruit.charAt(0).toLowerCase() === "a" ||
@@ -92,7 +88,7 @@ function dataLoaded(data) {
   }
 
   // The desription sentence with string.
-  let description = `${condiment} ${verb} like a ${cat} in a ${room} smelling like ${fruit} in ${teaArticle} ${tea}. It makes so much sense!`;
+  let description = `${condiment} ${verb} like ${catArticle} ${cat} in ${roomArticle} ${room} smelling like ${fruitArticle} ${fruit} in ${teaArticle} ${tea}. It makes so much sense!`;
   $("body").append(description);
 
   // Calls onto the mousePressed function.
