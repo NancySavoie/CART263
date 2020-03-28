@@ -1,0 +1,18 @@
+#startscreen {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 1);
+  /* The z-index is so the start page appears on top of the elements and not behind it */
+  z-index: 2;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 150px;
+  font-family: Impact;
+  color: green;
+}

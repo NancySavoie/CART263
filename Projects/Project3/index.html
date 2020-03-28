@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      width="device-width,"
+      initial-scale="1.0,"
+      maximum-scale="1.0,"
+      user-scalable="0"
+    />
+
+    <!-- CSS stylesheet(s) -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!-- Libraries -->
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- jQuery UI -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- ResponsiveVoice -->
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+
+    <!-- Annyang -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+
+    <!-- My script(s) -->
+    <script src="js/script.js"></script>
+  </head>
+  <!-- Start Screen -->
+  <div id="startscreen" onclick="off()">
+    <h1>
+      In the year 2036, a new generation known as the "Quarenteens" will rise, here's how this special generation came about to be. <br /><br />
+      Click the mouse to witness their origin. <br />
+    </h1>
+  </div>
+  <!-- Here is the audio tag that contains the sounds. -->
+  <audio>
+    <source src="assets/sounds/backgroundMusic.mp3" type="audio/mpeg" />
+    <source src="assets/sounds/trashSound.mp3" type="audio/mpeg" />
+  </audio>
+
+  <body>
+    <!-- Background Image -->
+    <style>
+      body {
+        background-image: url("assets/images/background.jpg");
+      }
+    </style>
+    <!-- Images for the robot and trash items -->
+    <img
+      id="robot"
+      src="assets/images/robotNormal.gif"
+      style="position:absolute; bottom:30px; left:400px;"
+    />
+    <img
+      id="trashFingerPuppet"
+      class="trash"
+      src="assets/images/trashFingerPuppet.png"
+      style="position:absolute; top:35px; left:50px;"
+    />
+    <img
+      id="trashHeadSwitch"
+      class="trash"
+      src="assets/images/trashHeadSwitch.png"
+      style="position:absolute; bottom:35px; left:50px;"
+    />
+    <img
+      id="trashRandomGenerator"
+      class="trash"
+      src="assets/images/trashRandomGenerator.png"
+      style="position:absolute; top:35px; left:1000px;"
+    />
+    <img
+      id="trashRapeShirt"
+      class="trash"
+      src="assets/images/trashRapeShirt.png"
+      style="position:absolute; bottom:35px; left:1000px;"
+    />
+  </body>
+</html>
