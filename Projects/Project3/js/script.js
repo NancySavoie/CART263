@@ -24,11 +24,12 @@ let pickupLines;
 $(document).ready(setup);
 
 function setup() {
-//  function setup() {
+// function setup() {
 $.getJSON("data/data.json")
   .done(dataLoaded)
   .fail(dataError)
   responsiveVoice.speak()
+  mouseClick()
   }
 
   // Function gets called by JSON once loaded.
@@ -65,9 +66,9 @@ function mousePressed() {
 $(document).one("click", mouseClick);
 
 //Music plays after the user clicks the mouse for the first time.
-function mouseClick() {
-  music.play();
-}
+//function mouseClick() {
+//  music.play();
+//}
 
 // This removes the start screen.
 function off() {
