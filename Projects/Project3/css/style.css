@@ -16,3 +16,9 @@
   font-family: Impact;
   color: green;
 }
+body {
+  margin: 2em;
+  font-family: Impact;
+  font-size: 4em;
+  font-weight: bold;
+}
