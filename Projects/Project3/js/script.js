@@ -24,7 +24,7 @@ let pickupLines;
 $(document).ready(setup);
 
 function setup() {
-  function setup() {
+//  function setup() {
 $.getJSON("data/data.json")
   .done(dataLoaded)
   .fail(dataError)
