@@ -24,14 +24,14 @@ let pickupLines;
 $(document).ready(setup);
 
 function setup() {
-$('#startscreen').on('click',off);
-$.getJSON("data/data.json")
-  .done(dataLoaded)
-  .fail(dataError)
-$(document).one("click", mouseClick);
-  }
+  $('#startscreen').on('click', off);
+  $.getJSON("data/data.json")
+    .done(dataLoaded)
+    .fail(dataError)
+  $(document).one("click", mouseClick);
+}
 
-  // Function gets called by JSON once loaded.
+// Function gets called by JSON once loaded.
 function dataLoaded(data) {
   console.log(data);
 
@@ -40,11 +40,11 @@ function dataLoaded(data) {
   console.log(pickupLines);
 
   // The desription sentence with string.
-    let description = `${pickupLines}`;
-    $("body").append(description);
-  }
+  let description = `${pickupLines}`;
+  $("body").append(description);
+}
 
-  function dataError(request, text, error) {
+function dataError(request, text, error) {
   console.error(error);
 }
 
@@ -53,14 +53,14 @@ function getRandomElement(array) {
   return element;
 }
 
-// Function mousePressed to reload the page when the mouse is clicked.
-function mousePressed() {
-  location.reload(true);
-}
-
 // This removes the start screen, plays the music and activates the responsive voice.
 function off() {
   document.getElementById("startscreen").style.display = "none";
   music.play();
-  responsiveVoice.speak(pickupLines,'UK English Male')
+  responsiveVoice.speak(pickupLines, 'UK English Male')
 }
+
+// Function mousePressed to reload the page when the mouse is clicked.
+//function mousePressed() {
+//  location.reload(true);
+//}
