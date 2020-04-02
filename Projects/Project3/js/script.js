@@ -25,11 +25,13 @@ $(document).ready(setup);
 
 function setup() {
 // function setup() {
+$('#startscreen').on('click',off);
 $.getJSON("data/data.json")
   .done(dataLoaded)
   .fail(dataError)
   responsiveVoice.speak()
 $(document).one("click", mouseClick);
+
   }
 
   // Function gets called by JSON once loaded.
