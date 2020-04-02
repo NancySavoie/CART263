@@ -29,7 +29,7 @@ $.getJSON("data/data.json")
   .done(dataLoaded)
   .fail(dataError)
   responsiveVoice.speak()
-  mouseClick()
+$(document).one("click", mouseClick);
   }
 
   // Function gets called by JSON once loaded.
@@ -39,7 +39,7 @@ function dataLoaded(data) {
   // The pick-up lines
   pickupLines = getRandomElement(data.pickupLines);
   console.log(pickupLines);
-  }
+
 
   // The desription sentence with string.
     let description = `${pickupLines}`;
@@ -63,7 +63,7 @@ function mousePressed() {
   location.reload(true);
 }
 
-$(document).one("click", mouseClick);
+
 
 //Music plays after the user clicks the mouse for the first time.
 //function mouseClick() {
@@ -73,4 +73,5 @@ $(document).one("click", mouseClick);
 // This removes the start screen.
 function off() {
   document.getElementById("startscreen").style.display = "none";
+  music.play();
 }
