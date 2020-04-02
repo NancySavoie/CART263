@@ -24,14 +24,11 @@ let pickupLines;
 $(document).ready(setup);
 
 function setup() {
-// function setup() {
 $('#startscreen').on('click',off);
 $.getJSON("data/data.json")
   .done(dataLoaded)
   .fail(dataError)
-  responsiveVoice.speak()
 $(document).one("click", mouseClick);
-
   }
 
   // Function gets called by JSON once loaded.
@@ -42,13 +39,9 @@ function dataLoaded(data) {
   pickupLines = getRandomElement(data.pickupLines);
   console.log(pickupLines);
 
-
   // The desription sentence with string.
     let description = `${pickupLines}`;
     $("body").append(description);
-
-    // Calls onto the mousePressed function.
-    //$("html").on("click", mousePressed);
   }
 
   function dataError(request, text, error) {
@@ -65,15 +58,9 @@ function mousePressed() {
   location.reload(true);
 }
 
-
-
-//Music plays after the user clicks the mouse for the first time.
-//function mouseClick() {
-//  music.play();
-//}
-
-// This removes the start screen.
+// This removes the start screen, plays the music and activates the responsive voice.
 function off() {
   document.getElementById("startscreen").style.display = "none";
   music.play();
+  responsiveVoice.speak(pickupLines,'UK English Male')
 }
