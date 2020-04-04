@@ -24,10 +24,10 @@ let pickupLines;
 $(document).ready(setup);
 
 function setup() {
-  $('#startscreen').on('click', off);
+  $("#startscreen").on("click", off);
   $.getJSON("data/data.json")
     .done(dataLoaded)
-    .fail(dataError)
+    .fail(dataError);
 }
 
 // Function gets called by JSON once loaded.
@@ -41,7 +41,6 @@ function dataLoaded(data) {
   // The desription sentence with string.
   let description = `${pickupLines}`;
   $("body").append(description);
-
 }
 
 function dataError(request, text, error) {
@@ -57,7 +56,7 @@ function getRandomElement(array) {
 function off() {
   document.getElementById("startscreen").style.display = "none";
   music.play();
-  responsiveVoice.speak(pickupLines, 'UK English Male')
+  responsiveVoice.speak(pickupLines, "UK English Male");
 }
 
 // Data reloads when mouse is clicked (Does not work, music doesnt play and start page keeps poping up)
