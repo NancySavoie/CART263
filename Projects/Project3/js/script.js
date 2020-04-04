@@ -28,7 +28,6 @@ function setup() {
   $.getJSON("data/data.json")
     .done(dataLoaded)
     .fail(dataError)
-  $(document).one("click", mouseClick);
 }
 
 // Function gets called by JSON once loaded.
@@ -42,6 +41,7 @@ function dataLoaded(data) {
   // The desription sentence with string.
   let description = `${pickupLines}`;
   $("body").append(description);
+
 }
 
 function dataError(request, text, error) {
@@ -60,7 +60,7 @@ function off() {
   responsiveVoice.speak(pickupLines, 'UK English Male')
 }
 
-// Function mousePressed to reload the page when the mouse is clicked.
-//function mousePressed() {
-//  location.reload(true);
-//}
+// Data reloads when mouse is clicked (Does not work, music doesnt play and start page keeps poping up)
+//$(document).click(function() {
+//   location.reload(true);
+// });
