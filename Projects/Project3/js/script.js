@@ -18,13 +18,12 @@ Background Music: Royalty Free Music - Sexy and Romantic song for YouTube Videos
 let music = new Audio("assets/sounds/backgroundMusic.mp3");
 // The start screen <div>
 let startscreen;
-// The pick-up lines variable
 let pickupLines;
 
 $(document).ready(setup);
 
 function setup() {
-  $("#startscreen").on("click", off);
+  $("#startscreen").one("click", off);
   $.getJSON("data/data.json")
     .done(dataLoaded)
     .fail(dataError);
@@ -33,18 +32,18 @@ function setup() {
 // Function gets called by JSON once loaded.
 function dataLoaded(data) {
   console.log(data);
-
-  // The pick-up lines
-  pickupLines = getRandomElement(data.pickupLines);
-  console.log(pickupLines);
-
-  // The desription sentence with string.
-  let description = `${pickupLines}`;
-  $("body").append(description);
+  pickupLines = data.pickupLines;
 }
 
 function dataError(request, text, error) {
   console.error(error);
+}
+
+function showPickupLine() {
+  // The pick-up lines
+  let pickupLine = getRandomElement(pickupLines);
+  $("body").text(pickupLine);
+  responsiveVoice.speak(pickupLine, "UK English Male");
 }
 
 function getRandomElement(array) {
@@ -53,11 +52,10 @@ function getRandomElement(array) {
 }
 
 // This removes the start screen, plays the music and activates the responsive voice.
-function off() {
+function off(e) {
   document.getElementById("startscreen").style.display = "none";
   music.play();
-  responsiveVoice.speak(pickupLines, "UK English Male");
-  $(document).click(function() {
-  location.reload(true);
-  });
+  showPickupLine();
+  e.stopPropagation();
+  $(document).click(showPickupLine);
 }

@@ -21,4 +21,5 @@ body {
   font-family: Impact;
   font-size: 4em;
   font-weight: bold;
+  background-image: url("../assets/images/background.gif");
 }
