@@ -57,9 +57,7 @@ function off() {
   document.getElementById("startscreen").style.display = "none";
   music.play();
   responsiveVoice.speak(pickupLines, "UK English Male");
+  $(document).click(function() {
+  location.reload(true);
+  });
 }
-
-// Data reloads when mouse is clicked (Does not work, music doesnt play and start page keeps poping up)
-//$(document).click(function() {
-//   location.reload(true);
-// });
