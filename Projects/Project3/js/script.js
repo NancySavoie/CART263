@@ -18,6 +18,7 @@ Background Music: Royalty Free Music - Sexy and Romantic song for YouTube Videos
 let music = new Audio("assets/sounds/backgroundMusic.mp3");
 // The start screen <div>
 let startscreen;
+// The array of pickup lines available from data.json
 let pickupLines;
 
 $(document).ready(setup);
@@ -43,7 +44,7 @@ function showPickupLine() {
   // The pick-up lines
   let pickupLine = getRandomElement(pickupLines);
   $("body").text(pickupLine);
-  responsiveVoice.speak(pickupLine, "UK English Male");
+  responsiveVoice.speak(pickupLine, "UK English Male", {pitch: 0.3}, {rate: 0.5});
 }
 
 function getRandomElement(array) {
@@ -51,7 +52,7 @@ function getRandomElement(array) {
   return element;
 }
 
-// This removes the start screen, plays the music and activates the responsive voice.
+// This removes the start screen, plays the music and activates the responsive voice as well as new pickuplines when the mouse is clicked.
 function off(e) {
   document.getElementById("startscreen").style.display = "none";
   music.play();
