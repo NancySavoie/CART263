@@ -44,7 +44,12 @@ function showPickupLine() {
   // The pick-up lines
   let pickupLine = getRandomElement(pickupLines);
   $("body").text(pickupLine);
-  responsiveVoice.speak(pickupLine, "UK English Male", {pitch: 0.3}, {rate: 0.5});
+  responsiveVoice.speak(
+    pickupLine,
+    "UK English Male",
+    { pitch: 0.3 },
+    { rate: 0.5 }
+  );
 }
 
 function getRandomElement(array) {
