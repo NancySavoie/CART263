@@ -7,7 +7,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 1);
+  background-image: url("../assets/images/backgroundStart.jpg");
   /* The z-index is so the start page appears on top of the elements and not behind it */
   z-index: 2;
   font-size: 25px;
@@ -20,6 +20,7 @@ body {
   margin: 2em;
   font-family: Impact;
   font-size: 4em;
-  font-weight: bold;
+  color: green;
+  position: fixed;
   background-image: url("../assets/images/background.gif");
 }

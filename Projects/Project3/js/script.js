@@ -23,9 +23,10 @@ let pickupLines;
 
 $(document).ready(setup);
 
+// Loads the data used use to get random pick lines using jQuery's .getJSON() function.
 function setup() {
   $("#startscreen").one("click", off);
-  $.getJSON("data/data.json")
+  $.getJSON("data/data.json") // Location of the file.
     .done(dataLoaded)
     .fail(dataError);
 }
@@ -36,12 +37,13 @@ function dataLoaded(data) {
   pickupLines = data.pickupLines;
 }
 
+// This function is called if the JSON does not load and it reports the error to the console.
 function dataError(request, text, error) {
   console.error(error);
 }
 
+// The pick up lines, gets a random line from the array in the JSON.
 function showPickupLine() {
-  // The pick-up lines
   let pickupLine = getRandomElement(pickupLines);
   $("body").text(pickupLine);
   responsiveVoice.speak(
@@ -52,6 +54,7 @@ function showPickupLine() {
   );
 }
 
+// Returns a random element from the pickuplines array.
 function getRandomElement(array) {
   let element = array[Math.floor(Math.random() * array.length)];
   return element;
