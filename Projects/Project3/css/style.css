@@ -12,6 +12,7 @@
   z-index: 2;
   font-size: 25px;
   text-align: center;
+  background-repeat: no-repeat;
   padding-top: 150px;
   font-family: Impact;
   color: green;
@@ -19,8 +20,13 @@
 body {
   margin: 2em;
   font-family: Impact;
-  font-size: 4em;
+  font-size: 3em;
+  padding-top: 125px;
+  padding-left: 200px;
+  padding-right: 200px;
+  text-align: center;
   color: green;
   position: fixed;
+  background-repeat: no-repeat;
   background-image: url("../assets/images/background.gif");
 }
